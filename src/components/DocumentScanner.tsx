@@ -50,23 +50,23 @@ export function DocumentScanner({ fileName, text, metadata, matches }: DocumentS
           <CardHeader className="pb-2">
             <div className="flex justify-between items-center">
               <CardTitle>Document Content</CardTitle>
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-[400px]">
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="original">Original</TabsTrigger>
-                  <TabsTrigger value="sanitized">Sanitized</TabsTrigger>
-                </TabsList>
-              </Tabs>
             </div>
           </CardHeader>
           <CardContent className="max-h-[500px] overflow-y-auto border rounded-md p-4">
-            <TabsContent value="original" className="mt-0">
-              <RiskHighlighter text={text} matches={matches} />
-            </TabsContent>
-            <TabsContent value="sanitized" className="mt-0">
-              <div className="font-mono text-sm leading-relaxed">
-                <p className="whitespace-pre-wrap break-words">{sanitizedText}</p>
-              </div>
-            </TabsContent>
+            <Tabs value={activeTab} onValueChange={setActiveTab}>
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="original">Original</TabsTrigger>
+                <TabsTrigger value="sanitized">Sanitized</TabsTrigger>
+              </TabsList>
+              <TabsContent value="original" className="mt-4">
+                <RiskHighlighter text={text} matches={matches} />
+              </TabsContent>
+              <TabsContent value="sanitized" className="mt-4">
+                <div className="font-mono text-sm leading-relaxed">
+                  <p className="whitespace-pre-wrap break-words">{sanitizedText}</p>
+                </div>
+              </TabsContent>
+            </Tabs>
           </CardContent>
           <CardFooter className="flex justify-between border-t pt-4">
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
