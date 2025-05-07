@@ -1,9 +1,7 @@
-
 // This is a placeholder file for the actual implementation with mammoth.js and pdf.js
 // In a real project, these would be implemented fully
 
 import * as pdfjs from 'pdfjs-dist';
-import mammoth from 'mammoth';
 
 // Initialize PDF.js worker
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
@@ -18,5 +16,6 @@ export async function extractTextFromPDF(file: File): Promise<{ text: string, me
 
 export async function extractTextFromDOCX(file: File): Promise<{ text: string, metadata: any }> {
   // This would use mammoth.js to extract text and metadata
+  // Instead of directly importing mammoth, we're using a mock implementation
   return { text: 'DOCX content here', metadata: {} };
 }

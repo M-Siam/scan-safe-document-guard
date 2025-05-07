@@ -83,7 +83,7 @@ export function PrivacyScore({ score, matches }: PrivacyScoreProps) {
             {riskLevel} Risk
           </span>
         </div>
-        <Progress value={score} className="h-2" indicatorClassName={getScoreColor()} />
+        <Progress value={score} className={`h-2 ${getScoreColor()}`} />
       </div>
       
       <Alert>
